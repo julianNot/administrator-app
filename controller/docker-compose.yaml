@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_customerorders
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: customerorders
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3317:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: --default-time-zone='-05:00'
+
+volumes:
+  mysql_data:
